@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weekly Team Member Performance Rating</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- included -->
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+
+    <!-- <script>
+      // configure email.js
+      emailjs.init("5SWP8TlBKx6xqHBUy");
+    </script> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+      body {
+        background-color: #010a0f;
+      }
+      .header1 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #52f2e2;
+        line-height: 1.5;
+      }
+      .header2 {
+        font-size: 45px;
+        font-weight: 900;
+        /* color: #ec5646; */
+        line-height: 1.5;
+        color: #52f2e2;
+        opacity: 0.5;
+      }
+      .form-control {
+        background-color: #11191f;
+        color: #fff;
+        padding: 12px 28px;
+        border: none;
+      }
+      .form-control:hover {
+        background-color: #151f32;
+        color: white;
+        padding: 12px 28px;
+        border: none;
+      }
+
+      .col-form-label,
+      .form-label,
+      .subtitle {
+        color: #6074a0;
+        font-size: 20px;
+      }
+
+      /* ::placeholder {
+        color: #fff;
+      } */
+
+      ::-webkit-input-placeholder {
+        color: white;
+      }
+
+      .input::-moz-placeholder {
+        color: white;
+      }
+
+      /* ::-ms-placeholder {
+        color: white;
+      } */
+
+      .form-control::placeholder {
+        color: gray;
+      }
+
+      .submit-button {
+        height: 60px;
+        width: 180px;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3ebeb8;
+        cursor: pointer;
+        outline: 2px solid #3ebeb8;
+        transition: all 0.5s;
+      }
+      .submit-button:hover,
+      .submit-button:focus {
+        background-color: transparent;
+        outline: 2px solid #3ebeb8;
+        color: white;
+        /* outline-offset: 8px; */
+      }
+      .r2 {
+        box-shadow: 0px 16px 35px 0px rgb(0 0 2 / 8%);
+        border-radius: 25px;
+        background-color: #18273f;
+      }
+      .text-area {
+        display: list-item;
+        margin-left: 1em;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="title-block text-center">
+        <h1 class="header1">NGENI FIRE <span class="fire">&#128293;</span></h1>
+        <p class="subtitle">Building. Shaping. Moving</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-10 py-5">
+          <div class="row align-items-center r2 p-5">
+            <div class="col-lg-6 ml-auto">
+              <h1 class="header2">Weekly Team Member Performance Rating</h1>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <form
+                id="rating-form"
+                action="https://formsubmit.co/hr@ngeni.io"
+                method="POST"
+              >
+                <!-- <input
+                  type="hidden"
+                  name="_cc"
+                  value="rosemary@ngeni.io,bettykirii@ngeni.io,domambia@ngeni.io,vincent@ngeni.io,loyce@ngeni.io,maisie@ngeni.io,sylvia@ngeni.io"
+                /> -->
+                <!-- NEW -->
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label"
+                    >Department</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    name="Department"
+                    placeholder="department name"
+                    required
+                  />
+                  <label for="exampleFormControlInput1" class="form-label"
+                    >Team Member Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="input the name here"
+                    id="exampleFormControlInput1"
+                    name="Team Member Name"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputPassword" class="col-sm-6 col-form-label"
+                    >Communication</label
+                  >
+                  <div class="col-sm-6">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="communication"
+                      name="Communication"
+                      min="1"
+                      max="5"
+                      value="5"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="inputPassword" class="col-sm-6 col-form-label"
+                    >Quality of Work</label
+                  >
+                  <div class="col-sm-6">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="quality-of-work"
+                      name="Quality Of Work"
+                      min="1"
+                      max="5"
+                      value="5"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="inputPassword" class="col-sm-6 col-form-label"
+                    >Teamwork</label
+                  >
+                  <div class="col-sm-6">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="teamwork"
+                      name="Teamwork"
+                      min="1"
+                      max="5"
+                      value="5"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-5 row">
+                  <label for="inputPassword" class="col-sm-6 col-form-label"
+                    >Attitude</label
+                  >
+                  <div class="col-sm-6">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="attitude"
+                      name="Attitude"
+                      min="1"
+                      max="5"
+                      value="5"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-5 row">
+                  <div class="form-outline">
+                    <label class="form-label" for="textAreaExample"
+                      >Leave a comment</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="textArea"
+                      name="TextArea"
+                      placeholder="Message"
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+                <!-- NEW END -->
+
+                <button type="submit" class="btn submit-button w-100 py-4">
+                  Submit Rating
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
